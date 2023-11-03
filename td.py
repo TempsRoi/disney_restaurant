@@ -8,6 +8,9 @@ import json
 import datetime
 import calendar
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
  
 class RestaurantMonitor:
     def __init__(self, config_file='visit.json', restaurant_file='restaurant.txt'):
@@ -40,7 +43,7 @@ class RestaurantMonitor:
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--disable-gpu')
-        executable_path='/usr/lib/chromium-browser/chromedriver'
+        executable_path='/usr/bin/chromedrive'
         service = Service(executable_path)
         self.driver = webdriver.Chrome(service=service, options=options)
         self.driver.implicitly_wait(10)
